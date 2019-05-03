@@ -1,2 +1,0 @@
-This file was created by node.js
-This file was appended by the appendFileSync Function
