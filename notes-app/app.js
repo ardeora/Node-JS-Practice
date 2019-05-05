@@ -1,23 +1,60 @@
-// Section 4 Lecture 15
+// Section 4 Lecture 16
 
-// Learning how to accept user input from the command line
-// Like the window object in browsers, Node.js has a process object
-// which stores the user input made in the command line
-
-// argv contains all the inputs passed by the user
-// console.log(process.argv[2]);
+// Using yargs to simplify user input parsing
 
 const chalk = require('chalk');
+const yargs = require('yargs');
 const notes = require('./notes.js');
 
+// Creating an add note command
+yargs.command({
+  command: 'add',
+  describe: 'Adds a new note',
+  // Builder lists all the arguments for the handler function
+  builder: {
+    title: {
+      describe: 'Title of the note',
+      // demandOption makes the argument required
+      demandOption: true,
+      type: 'string'
+    },
+    body: {
+      describe: 'Body of the Note',
+      demandOption: true,
+      type: 'string'
+    }
+  },
+  handler: function(argv){
+    console.log('Title: ' + argv.title);
+    console.log('Body: ' + argv.body);
+  }
+});
 
-const command = process.argv[2];
+// Creating a remove note function
+yargs.command({
+  command: 'remove',
+  describe: 'Remove a note',
+  handler: function(){
+    console.log('Removing a note!');
+  }
+});
 
-if (command === 'add') {
-  console.log('Adding Note!');
-} else if (command === 'remove') {
-  console.log('Removing Note!');
-}
+// Creating a list note function
+yargs.command({
+  command: 'list',
+  describe: 'Lists all the notes',
+  handler: function(){
+    console.log('Listing all nodes');
+  }
+});
 
-//parsing argv can get tedious and wont be anything that makes our application stand out from other applications.
-// For that reasons we will be using yargs node module to parse user inputs
+// Creating a remove note function
+yargs.command({
+  command: 'read',
+  describe: 'Reads a note',
+  handler: function(){
+    console.log('Reading a note!');
+  }
+});
+
+yargs.parse()
