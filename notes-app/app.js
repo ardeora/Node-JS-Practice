@@ -1,8 +1,6 @@
 // Section 4 Lecture 16
 
 // Using yargs to simplify user input parsing
-
-const chalk = require('chalk');
 const yargs = require('yargs');
 const notes = require('./notes.js');
 
@@ -25,8 +23,7 @@ yargs.command({
     }
   },
   handler: function(argv){
-    console.log('Title: ' + argv.title);
-    console.log('Body: ' + argv.body);
+    notes.addNote(argv.title, argv.body)
   }
 });
 
