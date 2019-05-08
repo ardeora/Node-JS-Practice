@@ -1,4 +1,5 @@
 const fs = require('fs');
+const chalk = require('chalk');
 
 function addNote(title, body) {
   const notes = loadNotes();
@@ -17,6 +18,18 @@ function addNote(title, body) {
   }
 }
 
+function removeNote(title) {
+  const notes = loadNotes();
+  const deletedNotes = notes.filter(function(note){
+    return title !== note.title;
+  });
+  if (notes.length === deletedNotes.length) {
+    console.log(chalk.bgRed('No note with the title exists'));
+  } else {
+    saveNotes(deletedNotes);
+    console.log(chalk.bgGreen('Note Deleted!'));
+  }
+}
 function saveNotes(notes) {
   const notesJSON = JSON.stringify(notes);
   fs.writeFileSync('notes.json', notesJSON);
@@ -31,4 +44,4 @@ function loadNotes() {
     return [];
   }
 }
-module.exports = {addNote};
+module.exports = {addNote, removeNote};
