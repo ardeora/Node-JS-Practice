@@ -3,9 +3,7 @@ const chalk = require('chalk');
 
 function addNote(title, body) {
   const notes = loadNotes();
-  const duplicateNotes = notes.filter(function(note){
-    return note.title === title;
-  })
+  const duplicateNotes = notes.filter((note) => note.title === title);
   if (duplicateNotes.length === 0) {
     notes.push({
       title,
@@ -20,14 +18,12 @@ function addNote(title, body) {
 
 function removeNote(title) {
   const notes = loadNotes();
-  const deletedNotes = notes.filter(function(note){
-    return title !== note.title;
-  });
+  const deletedNotes = notes.filter((note) => title !== note.title);
   if (notes.length === deletedNotes.length) {
     console.log(chalk.bgRed('No note with the title exists'));
   } else {
     saveNotes(deletedNotes);
-    console.log(chalk.bgGreen('Note Deleted!'));
+    console.log(chalk.black.bgGreen('Note Deleted!'));
   }
 }
 function saveNotes(notes) {

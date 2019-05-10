@@ -1,1 +1,18 @@
-[{"title":"My First Note","body":"Hello, World"},{"title":"My Second Note","body":"Hello"},{"title":"My Third Note","body":"Hello, this is the third note"}]
+[
+    {
+        "title": "My First Note",
+        "body": "Hello, World"
+    },
+    {
+        "title": "My Second Note",
+        "body": "Hello"
+    },
+    {
+        "title": "My Third Note",
+        "body": "Hello, this is the third note"
+    },
+    {
+        "title": "My Fourth Note",
+        "body": "Yo This is the fourth note"
+    }
+]
