@@ -40,4 +40,24 @@ function loadNotes() {
     return [];
   }
 }
-module.exports = {addNote, removeNote};
+
+function listNotes() {
+  const notes = loadNotes();
+  console.log(chalk.bgBlue.black('Listing All Notes'));
+  notes.forEach(note => console.log(note.title));
+}
+
+function readNotes(title) {
+  const notes = loadNotes();
+  const reqNote = notes.find((note) => note.title == title);
+
+  if (reqNote) {
+    console.log(chalk.blue.inverse(reqNote.title));
+    console.log(reqNote.body);
+  } else {
+    console.log(chalk.red.inverse('No Note With That Title Exists!'));
+    
+  }
+}
+
+module.exports = {addNote, removeNote, listNotes, readNotes};
