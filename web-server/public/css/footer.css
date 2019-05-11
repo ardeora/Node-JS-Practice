@@ -1,0 +1,27 @@
+footer {
+  height: 100px;
+  background: #D1D0D0;
+  width: 100%;
+  position: relative;
+  padding-top: 30px;
+}
+
+#footer-heading {
+  color: #333333;
+  text-align: center;
+}
+
+#brand-icon-holder {
+  margin-top: 5px;
+  text-align: center;
+  letter-spacing: 4px;
+}
+
+.fab, .fas {
+  cursor: pointer;
+  font-size:18px !important
+}
+
+.fab:hover, .fas:hover {
+  color: #4d4d4d;
+}

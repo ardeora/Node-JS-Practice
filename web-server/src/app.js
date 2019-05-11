@@ -1,25 +1,18 @@
+const path = require('path');
 const express = require('express');
+
 const app = express();
+const publicDir = path.join(__dirname, '../public');
 
-console.log(__dirname);
-console.log(__filename);
 
-app.get('', (req, res) => {
-    res.send('Hello, Express!');
-})
-
-app.get('/help', (req, res) => {
-    res.send('This is the Help Page!');
-})
-
-app.get('/about', (req, res) => {
-    res.send('This is the About Page!');
-})
+app.set('view engine', 'hbs');
+app.use(express.static(publicDir));
 
 app.get('/weather', (req, res) => {
-    res.send('This is the Weather Page!');
+    res.render('weather/index', {
+        title: 'Yoooooooooo This Bitch Working!'
+    });
 })
-
 app.listen(3000, () => {
     console.log('Server running on port 3000');
 })

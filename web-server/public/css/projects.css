@@ -1,0 +1,142 @@
+#r-work-title {
+  width: 100%;
+  text-align: center;
+}
+
+.project {
+  position: absolute;
+}
+
+#project-grid-container {
+  /* background: red; */
+  position: relative;
+  max-width: 800px;
+  width: 98%;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+
+#project-grid-container .project{
+  text-align: center;
+  box-shadow: 0px 2px 3px rgba(95, 95, 95, 0.3);
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+#project-grid-container .project:hover{
+  box-shadow: 0px 10px 20px rgba(95, 95, 95, 0.2);
+  background: #efefef;
+  transition: 0.3s ease;
+}
+
+.project-pic {
+  width: 100%;
+  border-radius: 5px 5px 0px 0px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.project-type, .project-start-date, .project-description {
+  text-align: left;
+  margin-left: 8px;
+  margin-top: 8px;
+  margin-right: 8px;
+  font-family: 'Noto Sans';
+  font-size: 12px;
+}
+
+.project-description {
+  margin-bottom: 14px;
+}
+
+.project-title {
+  font-family: 'Product Sans';
+  font-weight: 400;
+  text-align: left;
+  margin-left: 8px;
+  margin-top: 6px;
+  font-size: 22px;
+}
+
+.project:hover .project-title {
+  text-decoration: underline;
+}
+
+#ml-challenge .project-pic {
+  height: 220px;
+  background-image: url("../img/ml-challenge.svg");
+}
+
+#icore .project-pic {
+  height: 120px;
+  background-image: url("../img/icoreCase.svg");
+}
+
+#personalize-canvas .project-pic {
+  height: 180px;
+  background-image: url("../img/PCanvas.svg");
+}
+
+#airline-database .project-pic {
+  height: 150px;
+  background-image: url("../img/Plane.svg");
+}
+
+#illustrator .project-pic {
+  height: 170px;
+  background-image: url("../img/illustrator.svg");
+  background-position: top left;
+}
+
+#point-of-sale .project-pic {
+  height: 220px;
+  /* background: black; */
+  background-image: url("../img/point-of-sale.svg");
+}
+
+#excel-case .project-pic {
+  height: 150px;
+  /* background: black; */
+  background-image: url("../img/cafe.svg");
+}
+
+#galton .project-pic {
+  height: 220px;
+  /* background: black; */
+  background-image: url("../img/galton-board.svg");
+}
+
+@media(max-width: 750px) {
+  #icore .project-pic {
+    height: 180px;
+  }
+
+  #project-grid-container {
+    width: 95%;
+  }
+
+  #excel-case .project-pic {
+    height: 190px;
+  }
+}
+
+@media(max-width: 500px) {
+  #icore .project-pic {
+    height: 200px;
+  }
+
+  #illustrator .project-pic {
+    height: 210px;
+    background-position: top left;
+  }
+
+  #airline-database .project-pic {
+    height: 200px;
+  }
+
+  #project-grid-container {
+    width: 90%;
+  }
+}

@@ -1,0 +1,161 @@
+/* #test {
+  position: absolute;
+  background-image: url("/img/background curve2.svg");
+  height: 550px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -3;
+} */
+
+#desc-illus-container {
+  width: 768px;
+  /* background: red; */
+  height: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+#desc-wrapper {
+  display: inline-block;
+  height: 100%;
+  /* background: green; */
+  width: 418px;
+  position: absolute;
+}
+
+#desc {
+  position: relative;
+  top: 50%;
+  left: 55px;
+  transform: translate(0,-50%);
+}
+
+#desc h1 {
+  color: black;
+  font-size: 38px;
+}
+
+#desc h2, h2 {
+  color: black;
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+#desc h3 {
+  color: black;
+  font-size: 18px;
+  font-weight: normal;
+  letter-spacing: 5px;
+}
+
+#illus-wrapper {
+  display: inline-block;
+  height: 100%;
+  /* background: blue; */
+  width: 350px;
+  position: absolute;
+  left: 418px;
+}
+
+#illus {
+  height: 296px;
+  /* background: yellow; */
+  width: 229px;
+  position: relative;
+  top: 50%;
+  left: 40px;
+  transform: translate(0,-50%);
+  background-image: url("../img/computer.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media(max-width: 750px) {
+  #illus-wrapper {
+    width: 100%;
+    height: auto;
+    left: 0;
+  }
+  #desc-wrapper {
+    top: 303px;
+    width: 100%;
+  }
+  #desc-illus-container {
+    width: 576px;
+    margin-bottom: 100px;
+  }
+  #desc {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+  }
+  #desc * {
+    text-align: center;
+  }
+  #illus {
+    height: 283px;
+    width: 219px;
+    top: 0;
+    transform: translate(-50%,0);
+    left: 50%;
+  }
+}
+
+@media(max-width: 576px) {
+  #desc-wrapper {
+    top: 285px;
+    width: 100%;
+  }
+
+  #desc-illus-container {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  #illus {
+    height: 265px;
+    width: 205px;
+  }
+
+  #desc h1 {
+    font-size: 34px;
+  }
+
+  #desc h2, h2 {
+    font-size: 22px;
+  }
+
+  #desc h3 {
+    font-size: 16px;
+  }
+}
+
+@media(max-width: 325px) {
+  #desc h1 {
+    font-size: 28px;
+  }
+
+  #desc h2, h2 {
+    font-size: 18px;
+  }
+
+  #desc h3 {
+    font-size: 12px;
+  }
+
+  #illus {
+    height: 240px;
+    width: 186px;
+  }
+
+  #desc-wrapper {
+    top: 260px;
+    width: 100%;
+  }
+}
