@@ -14,10 +14,10 @@ weatherForm.addEventListener('submit', (e) => {
 })
 fetch('http://localhost:3000/weather/?address=boston').then((response) => {
     response.json().then((data) => {
-        console.log(data);
-        
+        console.log(data);        
     })
 });
+
 
 searchBtn.addEventListener('click', () => {
     addressBox.classList.remove('form-invisible');
@@ -33,6 +33,9 @@ closeBtn.addEventListener('click', () => {
 });
 
 function setTime() {
+    // var indiaTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"});
+    // indiaTime = new Date(indiaTime);
+    // console.log('India time: '+indiaTime.toLocaleString())
     let d = new Date();
     let year = d.getFullYear().toString();
     let str = `${day[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} '${year.substring(2)}`;
