@@ -10,13 +10,19 @@ const searchBar = document.getElementById('inp-add');
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log('Working!');
-    
+    fetch(`http://localhost:3000/weather/?address=${searchBar.value}`).then((response) => {
+        response.json().then((data) => {
+            setSVG(data.forecast.icon);
+            setTime(data.forecast.timezone);
+            document.getElementById('temp').innerHTML = data.forecast.temperature;
+            document.getElementById('location').innerHTML = data.location;
+            addressBox.classList.remove('form-visible');
+            addressBox.classList.add('form-invisible');
+        })
+    });
 })
-fetch('http://localhost:3000/weather/?address=boston').then((response) => {
-    response.json().then((data) => {
-        console.log(data);        
-    })
-});
+
+
 
 
 searchBtn.addEventListener('click', () => {
@@ -32,13 +38,21 @@ closeBtn.addEventListener('click', () => {
     addressBox.classList.add('form-invisible');
 });
 
-function setTime() {
-    // var indiaTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"});
-    // indiaTime = new Date(indiaTime);
+function setTime(zone) {
+    let timezoneTime = new Date().toLocaleString("en-US", {timeZone: zone});
     // console.log('India time: '+indiaTime.toLocaleString())
-    let d = new Date();
+    let d = new Date(timezoneTime);
     let year = d.getFullYear().toString();
-    let str = `${day[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} '${year.substring(2)}`;
+    let time = d.toLocaleTimeString();
+    let store = time;
+    let len = time.length;
+    time = time.substring(0,len-6);    
+    if (store.substring(len-2,len) === 'PM') {
+        time = time + 'pm'
+    } else {
+        time = time + 'am'
+    }
+    let str = `${time} - ${day[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} '${year.substring(2)}`;
     document.getElementById('date').innerHTML = str;
 }
 setTime();

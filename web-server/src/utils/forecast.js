@@ -8,8 +8,11 @@ function forecast(lat, long, callback) {
             } else if(body.error) {
                 callback('Location Information Incorrect!',undefined);
             } else {
-                const currently = body.currently;
-                callback(undefined,`${body.daily.data[0].summary} ${currently.icon}. It is currently ${currently.temperature} degrees out. There is a ${currently.precipProbability * 100}% chance of rain.`);
+                callback(undefined,{
+                    timezone: body.timezone,
+                    icon: body.currently.icon,
+                    temperature: Math.floor(body.currently.temperature)
+                });
             } 
         })
 }
