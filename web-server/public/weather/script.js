@@ -12,12 +12,22 @@ weatherForm.addEventListener('submit', (e) => {
     console.log('Working!');
     fetch(`http://localhost:3000/weather/?address=${searchBar.value}`).then((response) => {
         response.json().then((data) => {
-            setSVG(data.forecast.icon);
-            setTime(data.forecast.timezone);
-            document.getElementById('temp').innerHTML = data.forecast.temperature;
-            document.getElementById('location').innerHTML = data.location;
-            addressBox.classList.remove('form-visible');
-            addressBox.classList.add('form-invisible');
+            if(data.error) {
+                const skyline = document.getElementById('SkyLine').style.fill;
+                document.getElementById('add-box-text').innerHTML = 'Invalid Location! Please enter more details';
+                setSVG('error');
+                addressBox.style.backgroundColor = '#7F0D03';
+
+            } else {
+                setSVG(data.forecast.icon);
+                setTime(data.forecast.timezone);
+                document.getElementById('loc-det').style.display = 'block';
+                document.getElementById('temp-det').style.display = 'block';
+                document.getElementById('temp').innerHTML = data.forecast.temperature;
+                document.getElementById('location').innerHTML = data.location;
+                addressBox.classList.remove('form-visible');
+                addressBox.classList.add('form-invisible');
+            }            
         })
     });
 })
@@ -28,6 +38,8 @@ weatherForm.addEventListener('submit', (e) => {
 searchBtn.addEventListener('click', () => {
     addressBox.classList.remove('form-invisible');
     addressBox.classList.add('form-visible');
+    document.getElementById('loc-det').style.display = 'none';
+    document.getElementById('temp-det').style.display = 'none';
     const skyline = document.getElementById('SkyLine').style.fill;
     addressBox.style.backgroundColor = skyline;
     document.getElementById('submit-btn').style.color = skyline;
@@ -59,7 +71,7 @@ setTime();
 
 
 function clearSvg() {
-    const assetGroup = document.querySelectorAll('#All-Assets > g, #All-Assets > path, #All-Assets > rect');
+    const assetGroup = document.querySelectorAll('#All-Assets > g, #All-Assets > path, #All-Assets > rect, #All-Assets > circle');
     console.log(assetGroup);
     assetGroup.forEach((asset) => {
         asset.setAttribute('display', 'none')
@@ -172,6 +184,13 @@ function setSVG(param) {
         } else {
             changeSummary('Sleet'); 
         }
+    } else if(param === 'error') {
+        const assetStr = '#Sky, #SkyLine, #Dune2, #Dune1';
+        const assetGroup = toggleDisplay(assetStr);
+        assetGroup[0].style.fill = 'var(--error-sky)';
+        assetGroup[1].style.fill = 'var(--error-skyline)';
+        assetGroup[2].style.fill = 'var(--error-dune2)';
+        assetGroup[3].style.fill = 'var(--error-dune1)';
     }
 }
-setSVG('clear-day');
+

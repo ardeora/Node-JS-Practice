@@ -38,6 +38,11 @@
     --sleet-dune2: #FF4598;
     --sleet-sky: #FF66BA;
     --sleet-skyline: #FF217B;
+
+    --error-dune1: #FF7A6E;
+    --error-dune2: #FF4737;
+    --error-sky: #DB3D2F;
+    --error-skyline: #7F0D03; 
 }
 
 #All-Assets > * {
@@ -80,14 +85,17 @@ html, body {
 }
 
 h3 {
+    width: 80%;
+    margin: 20px auto;
     text-align: center;
     color: white;
 }
+
 #address-box {
     position: absolute;
     height: 35%;
     width: 90%;
-    background: #ececec;
+    background: #267F65;
     top: 20px;   
     transition: left ease-in-out 1s, transform ease-in-out 0.75s;
     border-radius: 5px;
@@ -162,6 +170,7 @@ h3 {
     margin-left: 20px;
     margin-top: 50px;
     color: white;
+    display: none;
 }
 
 #location {
@@ -177,6 +186,7 @@ h3 {
     margin-left: 20px;
     margin-top: 50px;
     color: white;
+    display: none;
 }
 
 #temperature {
