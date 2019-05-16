@@ -1,7 +1,8 @@
 const request = require('request');
 
 function geocode(address, callback) {
-    const geocodeURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=AIzaSyA2R7AJzczn6ZuocyEcSf2kg5kIQrbzJ7Q`
+    const apiKey = 'Your API KEY Here';
+    const geocodeURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}`
     request({url: geocodeURL, json: true}, (error, {body}) => {
         if (error) {
             callback('Unable to connect to location services!',undefined);     

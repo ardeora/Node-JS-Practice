@@ -10,14 +10,16 @@ const searchBar = document.getElementById('inp-add');
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log('Working!');
-    fetch(`http://localhost:3000/weather/?address=${searchBar.value}`).then((response) => {
+    fetch(`/weather?address=${searchBar.value}`).then((response) => {
         response.json().then((data) => {
             if(data.error) {
-                const skyline = document.getElementById('SkyLine').style.fill;
                 document.getElementById('add-box-text').innerHTML = 'Invalid Location! Please enter more details';
                 setSVG('error');
                 addressBox.style.backgroundColor = '#7F0D03';
-
+                document.getElementById('loc-det').style.display = 'block';
+                document.getElementById('location').innerHTML = 'Location Not Found';
+                document.getElementById('date').innerHTML = '';
+                document.getElementById('temp-det').style.display = 'none';
             } else {
                 setSVG(data.forecast.icon);
                 setTime(data.forecast.timezone);
@@ -38,8 +40,6 @@ weatherForm.addEventListener('submit', (e) => {
 searchBtn.addEventListener('click', () => {
     addressBox.classList.remove('form-invisible');
     addressBox.classList.add('form-visible');
-    document.getElementById('loc-det').style.display = 'none';
-    document.getElementById('temp-det').style.display = 'none';
     const skyline = document.getElementById('SkyLine').style.fill;
     addressBox.style.backgroundColor = skyline;
     document.getElementById('submit-btn').style.color = skyline;

@@ -123,19 +123,16 @@ h3 {
     border: none;
 }
 
-#inp-add:focus {
-    border: 2px solid #c6c6c7;
-}
-
 #submit-btn {
     display: block;
     margin: 20px auto;
-    width: 20%;
-    line-height: 20px;
+    width: 30%;
+    line-height: 30px;
     border: none;
     border-radius: 100px;
     cursor: pointer;
     outline: none;
+    background: white;
 }
 
 #submit-btn:hover {
@@ -213,3 +210,52 @@ h3 {
     vertical-align:top;
     display: inline-block;
 }
+
+@media screen and (max-width: 400px) {
+    #add-box-text {
+        font-size: 14px;
+    }
+
+    #inp-add {
+        line-height: 24px;
+        font-size: 12px;
+    }
+
+    #submit-btn {
+        width: 20%;
+        line-height: 20px;
+    }
+
+    #location {
+        font-size: 28px;
+        margin-bottom: 2px;
+    }
+
+    #temperature {
+        font-size: 64px;
+    }
+
+    .icon {
+        width: 24px;
+    }
+
+    #summary {
+        margin-top: 0px;
+    }
+
+    #current-summary {
+        font-size: 18px;
+        line-height: 24px;
+        margin-left: 5px;
+    }
+
+    #date {
+        font-size: 14px;
+    }
+  }
+
+  @media screen and (max-width: 330px) {
+    #address-box {
+        height: 40%;
+    }
+  }
